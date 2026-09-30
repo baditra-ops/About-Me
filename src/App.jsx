@@ -4,6 +4,7 @@ import BackgroundAtmosphere from './components/BackgroundAtmosphere';
 import Navbar from './components/Navbar';
 import HeroSection from './sections/HeroSection';
 import BuildingExperience from './sections/BuildingExperience/BuildingExperience';
+import AboutSection from './sections/AboutMe/AboutSection';
 import { personalInfo } from './data/personalInfo';
 import { Terminal, Shield } from 'lucide-react';
 import './App.css';
@@ -27,21 +28,8 @@ export default function App() {
         {/* Step 2 Core Selection Focus: The Heart of IIT BHU Interactive Experience */}
         <BuildingExperience />
 
-        {/* Transition Bridge: Reserved Anchor Framework for Step 3 (About Me) */}
-        <section id="about" className="section-marker">
-          <div className="container">
-            <div className="section-marker-inner">
-              <span className="marker-telemetry">
-                <Terminal size={14} />
-                <span>STAGE 03 READY // TRANSITION FROM CAMPUS CORE</span>
-              </span>
-              <h3 className="marker-title">About Me & Educational Odyssey</h3>
-              <p className="marker-desc">
-                Seamless transition point into Baditra Choudhury's 2nd Year Chemical Engineering journey, Julien Day School background, and backend systems philosophy.
-              </p>
-            </div>
-          </div>
-        </section>
+        {/* Step 3: About Me — Transition from Place (IIT BHU) to Person (Baditra) */}
+        <AboutSection />
 
         <section id="projects" className="section-marker">
           <div className="container">

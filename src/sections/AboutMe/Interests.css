@@ -1,0 +1,112 @@
+.interests-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+.interests-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.interests-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.interests-quote {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Compact Interactive Interest Badges */
+.interests-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-2);
+}
+
+.interest-pill-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 14px;
+  background: rgba(11, 15, 25, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  transition: all var(--transition-fast);
+  cursor: default;
+  overflow: hidden;
+}
+
+.interest-pill-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.interest-pill-card:hover {
+  background: rgba(18, 26, 44, 0.9);
+  border-color: rgba(56, 189, 248, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 10px var(--accent-cyan-subtle);
+}
+
+.interest-pill-card:hover::after {
+  opacity: 1;
+}
+
+.interest-category-tag {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  color: var(--accent-cyan);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.interest-name {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+}
+
+.interest-sub-note {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-muted);
+  line-height: 1.35;
+  margin-top: 4px;
+}
+
+@media (max-width: 900px) {
+  .interests-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .interests-grid {
+    grid-template-columns: 1fr;
+  }
+}
