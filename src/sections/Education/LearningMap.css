@@ -1,0 +1,390 @@
+.learning-map-container {
+  display: flex;
+  flex-direction: column;
+  background: rgba(11, 15, 25, 0.85);
+  border: 1px solid var(--border-medium);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 
+    0 16px 36px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+}
+
+/* Header */
+.learning-map-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-5);
+  background: rgba(7, 9, 14, 0.75);
+  border-bottom: 1px solid var(--border-subtle);
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.map-tag {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text-secondary);
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.map-coords-badge {
+  color: var(--accent-cyan);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  background: rgba(56, 189, 248, 0.08);
+  padding: 2px 7px;
+  border-radius: 4px;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+/* Body */
+.learning-map-body {
+  position: relative;
+  padding: var(--space-8) var(--space-6);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Central Continuous Backbone Conduit */
+.conduit-line-vertical {
+  position: absolute;
+  left: 45px;
+  top: 40px;
+  bottom: 80px;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    rgba(56, 189, 248, 0.3) 0%,
+    rgba(56, 189, 248, 0.8) 40%,
+    rgba(16, 185, 129, 0.8) 75%,
+    rgba(16, 185, 129, 0.2) 100%
+  );
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+  z-index: 1;
+}
+
+/* Milestones Track */
+.milestones-track {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  z-index: 2;
+}
+
+/* Row Item */
+.milestone-step-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-5);
+  position: relative;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Node Button */
+.milestone-anchor-node {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  cursor: pointer;
+  outline: none;
+  flex-shrink: 0;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  z-index: 3;
+}
+
+.milestone-anchor-node:hover {
+  border-color: var(--accent-cyan);
+  color: #ffffff;
+  transform: scale(1.08);
+  box-shadow: 0 0 16px var(--accent-cyan-glow);
+}
+
+.milestone-anchor-node:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 3px;
+}
+
+.milestone-step-row.selected .milestone-anchor-node {
+  border-color: var(--accent-cyan);
+  background: var(--bg-surface-elevated);
+  box-shadow: 0 0 20px var(--accent-cyan-glow);
+  transform: scale(1.1);
+}
+
+.node-marker-ring {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.node-num-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+}
+
+.node-check-icon {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  color: var(--accent-cyan);
+}
+
+.node-pulse-beacon {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-emerald);
+  box-shadow: 0 0 8px var(--accent-emerald);
+  animation: pulseEmerald 1.8s infinite ease-in-out;
+}
+
+/* Summary Card */
+.milestone-summary-card {
+  flex: 1;
+  background: rgba(17, 23, 38, 0.45);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: var(--space-4) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.milestone-summary-card:hover {
+  background: rgba(17, 23, 38, 0.75);
+  border-color: rgba(56, 189, 248, 0.3);
+  transform: translateX(4px);
+}
+
+.milestone-step-row.selected .milestone-summary-card {
+  background: rgba(17, 23, 38, 0.9);
+  border-color: var(--accent-cyan);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.5),
+    0 0 16px rgba(56, 189, 248, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transform: translateX(6px);
+}
+
+.milestone-step-row.is-current .milestone-summary-card {
+  border-left: 3px solid var(--accent-emerald);
+}
+
+.milestone-top-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.milestone-phase-code {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  letter-spacing: 0.08em;
+}
+
+.milestone-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  color: var(--text-dim);
+  letter-spacing: 0.06em;
+}
+
+.milestone-step-row.is-current .milestone-status-pill {
+  color: var(--accent-emerald);
+  font-weight: 600;
+}
+
+.status-ping-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-emerald);
+  animation: pulseEmerald 1.5s infinite;
+}
+
+.milestone-institution {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.milestone-details-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+}
+
+.milestone-degree-label {
+  font-weight: 500;
+}
+
+.milestone-location-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+/* Subtle IIT BHU Callback */
+.milestone-bhu-callback {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 8px;
+  background: rgba(56, 189, 248, 0.05);
+  border: 1px dashed rgba(56, 189, 248, 0.25);
+  border-radius: 6px;
+  margin-top: 2px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+}
+
+.bhu-callback-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--accent-cyan);
+  font-weight: 600;
+}
+
+.bhu-callback-grid {
+  color: var(--text-dim);
+}
+
+/* Metrics Strip */
+.milestone-metrics-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: 4px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--border-subtle);
+}
+
+.metric-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+}
+
+.m-label {
+  color: var(--text-dim);
+}
+
+.m-val {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.milestone-step-row.selected .metric-chip {
+  border-color: rgba(56, 189, 248, 0.25);
+  background: rgba(56, 189, 248, 0.06);
+}
+
+.milestone-step-row.selected .m-val {
+  color: var(--accent-cyan);
+}
+
+/* Trajectory Extension */
+.trajectory-extension-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  margin-top: var(--space-8);
+  padding-left: 2px;
+  position: relative;
+  z-index: 2;
+}
+
+.trajectory-node-terminal {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px dashed rgba(16, 185, 129, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.trajectory-label-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.trajectory-heading {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--accent-emerald);
+  letter-spacing: 0.08em;
+}
+
+.trajectory-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .conduit-line-vertical {
+    left: 26px;
+  }
+  .milestone-step-row {
+    gap: var(--space-3);
+  }
+  .milestone-anchor-node {
+    width: 36px;
+    height: 36px;
+  }
+  .trajectory-extension-row {
+    gap: var(--space-3);
+  }
+  .trajectory-node-terminal {
+    width: 36px;
+    height: 36px;
+  }
+}

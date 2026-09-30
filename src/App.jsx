@@ -6,6 +6,8 @@ import HeroSection from './sections/HeroSection';
 import BuildingExperience from './sections/BuildingExperience/BuildingExperience';
 import AboutSection from './sections/AboutMe/AboutSection';
 import ProjectsSection from './sections/Projects/ProjectsSection';
+import SkillsSection from './sections/Skills/SkillsSection';
+import EducationSection from './sections/Education/EducationSection';
 import { personalInfo } from './data/personalInfo';
 import { Terminal } from 'lucide-react';
 import './App.css';
@@ -35,20 +37,11 @@ export default function App() {
         {/* Step 4: Things I've Built — Selected Systems & Engineering Projects */}
         <ProjectsSection />
 
-        <section id="skills" className="section-marker">
-          <div className="container">
-            <div className="section-marker-inner">
-              <span className="marker-telemetry">
-                <Terminal size={14} />
-                <span>PHASE ARCHITECTURE // STAGE 07 READY</span>
-              </span>
-              <h3 className="marker-title">Technical Matrix & Systems Stack</h3>
-              <p className="marker-desc">
-                Reserved container for Java, WebSockets, Redis, PostgreSQL, Prisma, and distributed systems.
-              </p>
-            </div>
-          </div>
-        </section>
+        {/* Step 5: Technical Arsenal — The Tools & System Architecture */}
+        <SkillsSection />
+
+        {/* Step 6: Education & Learning Journey — The Academic Path */}
+        <EducationSection />
 
         <section id="contact" className="section-marker">
           <div className="container">
