@@ -1,0 +1,139 @@
+.map-markers-layer {
+  position: absolute;
+  inset: 0;
+  transform: translateZ(75px);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.map-node-anchor {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  transition: transform var(--transition-fast);
+}
+
+.map-node-anchor:hover {
+  transform: translate(-50%, -50%) scale(1.06);
+}
+
+/* Pulsing Beacon Sensor Core */
+.sensor-beacon-beacon {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sensor-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 10px var(--accent-cyan);
+  transition: background-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.sensor-ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid var(--accent-cyan);
+  animation: radarPing 2.8s infinite cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.map-node-anchor:hover .sensor-dot {
+  background: #ffffff;
+  box-shadow: 0 0 16px #ffffff, 0 0 24px var(--accent-cyan);
+}
+
+/* Telemetry Card */
+.map-node-card {
+  display: flex;
+  flex-direction: column;
+  padding: 6px 12px;
+  background: rgba(11, 15, 25, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 1px rgba(255, 255, 255, 0.1);
+  transition: all var(--transition-fast);
+  min-width: 130px;
+}
+
+.map-node-anchor:hover .map-node-card {
+  border-color: rgba(56, 189, 248, 0.6);
+  background: rgba(16, 24, 40, 0.95);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.75), 0 0 15px var(--accent-cyan-subtle);
+}
+
+.node-category {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  color: var(--accent-cyan);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.node-title {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.node-details {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 250ms ease, opacity 250ms ease, margin-top 250ms ease;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.map-node-anchor:hover .node-details,
+.map-node-anchor.active .node-details {
+  max-height: 50px;
+  opacity: 1;
+  margin-top: 4px;
+}
+
+/* Specific Node Placements */
+.node-clock-tower {
+  top: 23%;
+  left: 63%;
+}
+
+.node-quadrangle {
+  top: 73%;
+  left: 56%;
+}
+
+.node-grounds {
+  top: 67%;
+  left: 23%;
+}
+
+@media (max-width: 768px) {
+  .node-grounds {
+    display: none;
+  }
+  .map-node-card {
+    min-width: 110px;
+    padding: 4px 8px;
+  }
+  .node-title {
+    font-size: 10px;
+  }
+}

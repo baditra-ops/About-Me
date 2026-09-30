@@ -1,8 +1,9 @@
 import React from 'react';
+import MagneticCursor from './components/MagneticCursor';
 import BackgroundAtmosphere from './components/BackgroundAtmosphere';
 import Navbar from './components/Navbar';
 import HeroSection from './sections/HeroSection';
-import BuildingSceneSection from './sections/BuildingSceneSection';
+import BuildingExperience from './sections/BuildingExperience/BuildingExperience';
 import { personalInfo } from './data/personalInfo';
 import { Terminal, Shield } from 'lucide-react';
 import './App.css';
@@ -10,6 +11,9 @@ import './App.css';
 export default function App() {
   return (
     <div className="app-wrapper">
+      {/* High-Performance Magnetic Reticle Cursor */}
+      <MagneticCursor />
+
       {/* Background Ambience Layer */}
       <BackgroundAtmosphere />
 
@@ -20,20 +24,20 @@ export default function App() {
         {/* Step 1 Foundation: Cinematic Hero */}
         <HeroSection />
 
-        {/* Step 1 Foundation: IIT BHU 3D Building Scene Container */}
-        <BuildingSceneSection />
+        {/* Step 2 Core Selection Focus: The Heart of IIT BHU Interactive Experience */}
+        <BuildingExperience />
 
-        {/* Reserved Anchor Framework for Upcoming Steps (No fake content) */}
+        {/* Transition Bridge: Reserved Anchor Framework for Step 3 (About Me) */}
         <section id="about" className="section-marker">
           <div className="container">
             <div className="section-marker-inner">
               <span className="marker-telemetry">
                 <Terminal size={14} />
-                <span>PHASE ARCHITECTURE // STAGE 03 READY</span>
+                <span>STAGE 03 READY // TRANSITION FROM CAMPUS CORE</span>
               </span>
               <h3 className="marker-title">About Me & Educational Odyssey</h3>
               <p className="marker-desc">
-                Reserved container for Baditra's 2nd Year Chemical Engineering background, school history, and systems journey.
+                Seamless transition point into Baditra Choudhury's 2nd Year Chemical Engineering journey, Julien Day School background, and backend systems philosophy.
               </p>
             </div>
           </div>

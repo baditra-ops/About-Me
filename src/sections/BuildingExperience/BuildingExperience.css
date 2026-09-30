@@ -1,0 +1,247 @@
+.bhu-experience-track {
+  position: relative;
+  /* 220vh scroll runway for 4 distinct progressive scroll states */
+  height: 220vh;
+  width: 100%;
+}
+
+.bhu-sticky-viewport {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: calc(var(--space-16) + var(--space-2)) var(--space-6) var(--space-6);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Header & Cinematic Typography */
+.bhu-section-header {
+  width: 100%;
+  max-width: var(--container-wide);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 20;
+  gap: var(--space-6);
+}
+
+.bhu-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.bhu-pretitle-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent-cyan);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-1);
+}
+
+.bhu-section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 3.8vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.bhu-primary-statement {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  font-weight: 600;
+  color: var(--accent-cyan);
+  letter-spacing: -0.01em;
+  margin-top: 2px;
+}
+
+.bhu-header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  gap: 4px;
+}
+
+.bhu-secondary-loc {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.bhu-philosophy-quote {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  max-width: 320px;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+/* Central Stage Container */
+.bhu-main-scene-container {
+  width: 100%;
+  max-width: var(--container-wide);
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+}
+
+/* Scroll Telemetry HUD Dock (Left side) */
+.bhu-scroll-progress-dock {
+  position: absolute;
+  left: var(--space-8);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  z-index: 25;
+  pointer-events: none;
+}
+
+.progress-telemetry-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.telemetry-idx {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--accent-cyan);
+}
+
+.telemetry-lbl {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-secondary);
+  letter-spacing: 0.1em;
+}
+
+.progress-vertical-bar {
+  width: 2px;
+  height: 90px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  position: relative;
+  overflow: hidden;
+  margin-left: 6px;
+}
+
+.progress-vertical-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to bottom, var(--accent-cyan), var(--accent-emerald));
+  box-shadow: 0 0 8px var(--accent-cyan);
+  border-radius: 999px;
+  transition: height 60ms linear;
+}
+
+.progress-coords {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-dim);
+  letter-spacing: 0.05em;
+  margin-left: 2px;
+}
+
+.progress-pct {
+  color: var(--accent-cyan);
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+/* Transition Gateway to Next Section (About Me) */
+.bhu-transition-gateway {
+  width: 100%;
+  max-width: var(--container-wide);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 20;
+  padding-top: var(--space-2);
+}
+
+.gateway-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 4px 12px;
+  border-radius: 6px;
+  background: rgba(11, 15, 25, 0.8);
+  border: 1px solid var(--border-subtle);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+
+.gateway-next-prompt {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--accent-cyan);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: transform var(--transition-fast);
+}
+
+.gateway-pulse-arrow {
+  animation: subtleFloat 1.8s ease-in-out infinite;
+}
+
+/* Reduced Motion and Responsiveness */
+@media (max-width: 1024px) {
+  .bhu-scroll-progress-dock {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .bhu-sticky-viewport {
+    padding-top: calc(var(--space-16) + var(--space-4));
+  }
+  .bhu-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+  .bhu-header-right {
+    align-items: flex-start;
+    text-align: left;
+  }
+  .bhu-philosophy-quote {
+    max-width: 100%;
+  }
+  .bhu-transition-gateway {
+    flex-direction: column;
+    gap: var(--space-2);
+    align-items: flex-start;
+  }
+}

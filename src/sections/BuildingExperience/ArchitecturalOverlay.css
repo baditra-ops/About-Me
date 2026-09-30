@@ -1,0 +1,171 @@
+.arch-overlay-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 8;
+  overflow: hidden;
+}
+
+/* Precision Corner Crosshair Brackets */
+.arch-bracket {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-color: var(--accent-cyan);
+  border-style: solid;
+  opacity: 0.65;
+  transition: opacity var(--transition-fast);
+}
+
+.bracket-tl { top: 14px; left: 14px; border-width: 2px 0 0 2px; }
+.bracket-tr { top: 14px; right: 14px; border-width: 2px 2px 0 0; }
+.bracket-bl { bottom: 14px; left: 14px; border-width: 0 0 2px 2px; }
+.bracket-br { bottom: 14px; right: 14px; border-width: 0 2px 2px 0; }
+
+/* SVG Architectural Vector Canvas */
+.arch-vector-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Compass HUD in Top Right */
+.arch-compass-hud {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 6px 12px;
+  background: rgba(11, 15, 25, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-secondary);
+  letter-spacing: 0.08em;
+}
+
+.compass-dial {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed rgba(56, 189, 248, 0.4);
+  border-radius: 50%;
+  position: relative;
+  transition: transform 300ms ease;
+}
+
+.compass-dial::before {
+  content: '▲';
+  font-size: 7px;
+  color: var(--accent-cyan);
+  line-height: 1;
+}
+
+/* Clock Tower Precision Focal Reticle */
+.tower-focal-reticle {
+  position: absolute;
+  top: 24%;
+  left: 63%;
+  transform: translate(-50%, -50%);
+  width: 90px;
+  height: 90px;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reticle-ring-outer {
+  position: absolute;
+  inset: 0;
+  border: 1px dashed rgba(56, 189, 248, 0.35);
+  border-radius: 50%;
+  animation: reticleSpin 20s linear infinite;
+}
+
+.reticle-ring-inner {
+  position: absolute;
+  inset: 18px;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 50%;
+}
+
+.reticle-crosshair {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.4), transparent);
+}
+
+.reticle-crosshair.vert {
+  transform: rotate(90deg);
+}
+
+.reticle-label {
+  position: absolute;
+  bottom: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 2px 6px;
+  background: rgba(7, 9, 14, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  color: var(--accent-cyan);
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+@keyframes reticleSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Architectural Laser Scanline */
+.arch-scanline-laser {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.6) 50%, transparent);
+  box-shadow: 0 0 12px var(--accent-cyan);
+  pointer-events: none;
+  opacity: 0.7;
+  transition: top 80ms linear;
+}
+
+/* Map Coordinate Ticks on Border */
+.map-border-readout {
+  position: absolute;
+  bottom: 20px;
+  left: 24px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+}
+
+.readout-tag {
+  color: var(--accent-cyan);
+}
+
+@media (max-width: 640px) {
+  .tower-focal-reticle {
+    width: 64px;
+    height: 64px;
+  }
+  .arch-compass-hud {
+    display: none;
+  }
+}
