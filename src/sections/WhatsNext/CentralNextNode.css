@@ -1,0 +1,410 @@
+.central-next-node-canvas {
+  position: relative;
+  background: rgba(11, 15, 25, 0.85);
+  border: 1px solid var(--border-medium);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 
+    0 16px 36px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.central-next-node-canvas:hover {
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+/* Top Strip */
+.next-canvas-top-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-5);
+  background: rgba(7, 9, 14, 0.75);
+  border-bottom: 1px solid var(--border-subtle);
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.canvas-meta-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.canvas-beacon-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 8px var(--accent-cyan);
+  animation: pulseCyan 2s infinite ease-in-out;
+}
+
+.canvas-title-code {
+  color: var(--text-secondary);
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+.canvas-meta-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.canvas-mode-pill {
+  color: var(--accent-cyan);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  background: rgba(56, 189, 248, 0.08);
+  padding: 2px 7px;
+  border-radius: 4px;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.canvas-grid-coords {
+  color: var(--text-dim);
+  font-size: 10px;
+}
+
+/* Canvas Body */
+.next-canvas-body {
+  position: relative;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.next-canvas-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(56, 189, 248, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+}
+
+.next-canvas-radial {
+  position: absolute;
+  width: 400px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* SVG Orbital Graphics */
+.orbital-vector-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.orbital-ring.spin-slow {
+  transform-origin: 270px 190px;
+  animation: orbitSpin 60s linear infinite;
+}
+
+.orbital-ring.spin-reverse {
+  transform-origin: 270px 190px;
+  animation: orbitSpinRev 90s linear infinite;
+}
+
+@keyframes orbitSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orbitSpinRev {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+.active-beam {
+  animation: beamPulse 2s infinite ease-in-out alternate;
+}
+
+@keyframes beamPulse {
+  0% { opacity: 0.6; stroke-width: 1.5; }
+  100% { opacity: 1; stroke-width: 2.5; }
+}
+
+/* Central Nexus Point */
+.central-nexus-point {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.nexus-core-ring {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--bg-surface-elevated);
+  border: 2px solid var(--accent-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 0 24px var(--accent-cyan-glow),
+    inset 0 0 12px rgba(56, 189, 248, 0.2);
+  position: relative;
+}
+
+.nexus-icon {
+  color: #ffffff;
+}
+
+.nexus-status-ping {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 8px var(--accent-cyan);
+  animation: pulseCyan 1.5s infinite;
+}
+
+.nexus-label-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 8px;
+  text-align: center;
+}
+
+.nexus-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.nexus-coords {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-dim);
+  letter-spacing: 0.06em;
+}
+
+/* Waypoints Container */
+.waypoint-anchors-container {
+  position: absolute;
+  inset: 0;
+}
+
+.canvas-waypoint-btn {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: rgba(17, 23, 38, 0.85);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  backdrop-filter: blur(8px);
+  z-index: 6;
+}
+
+.canvas-waypoint-btn:hover {
+  background: var(--bg-surface-elevated);
+  border-color: rgba(56, 189, 248, 0.35);
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.canvas-waypoint-btn:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 3px;
+}
+
+.wp-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--text-dim);
+  transition: all 0.2s ease;
+}
+
+.wp-code {
+  font-size: 9px;
+  color: var(--text-dim);
+}
+
+/* Specific Waypoint Positions */
+.wp-build {
+  top: 15%;
+  left: 8%;
+}
+
+.wp-learn {
+  top: 15%;
+  right: 8%;
+}
+
+.wp-explore {
+  bottom: 18%;
+  left: 8%;
+}
+
+.wp-contribute {
+  bottom: 18%;
+  right: 8%;
+}
+
+/* Active Waypoint States */
+.canvas-waypoint-btn.active.wp-build {
+  border-color: #38bdf8;
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.3);
+}
+.canvas-waypoint-btn.active.wp-build .wp-dot {
+  background: #38bdf8;
+  box-shadow: 0 0 8px #38bdf8;
+}
+
+.canvas-waypoint-btn.active.wp-learn {
+  border-color: #10b981;
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.3);
+}
+.canvas-waypoint-btn.active.wp-learn .wp-dot {
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+}
+
+.canvas-waypoint-btn.active.wp-explore {
+  border-color: #f59e0b;
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(245, 158, 11, 0.3);
+}
+.canvas-waypoint-btn.active.wp-explore .wp-dot {
+  background: #f59e0b;
+  box-shadow: 0 0 8px #f59e0b;
+}
+
+.canvas-waypoint-btn.active.wp-contribute {
+  border-color: #e11d48;
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(225, 29, 72, 0.3);
+}
+.canvas-waypoint-btn.active.wp-contribute .wp-dot {
+  background: #e11d48;
+  box-shadow: 0 0 8px #e11d48;
+}
+
+/* Trajectory Floating Tray */
+.canvas-trajectory-tray {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: rgba(7, 9, 14, 0.8);
+  border: 1px solid var(--border-subtle);
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+  z-index: 6;
+}
+
+.tray-bullet {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+
+.tray-div {
+  color: var(--text-dim);
+}
+
+.tray-status {
+  color: var(--accent-cyan);
+  font-weight: 600;
+}
+
+/* Canvas Footer */
+.next-canvas-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-3) var(--space-5);
+  background: rgba(7, 9, 14, 0.6);
+  border-top: 1px solid var(--border-subtle);
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.footer-stat {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text-dim);
+}
+
+.stat-txt {
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .next-canvas-body {
+    min-height: 320px;
+  }
+  .canvas-meta-right {
+    display: none;
+  }
+  .canvas-trajectory-tray {
+    display: none;
+  }
+  .wp-build { top: 8%; left: 4%; }
+  .wp-learn { top: 8%; right: 4%; }
+  .wp-explore { bottom: 10%; left: 4%; }
+  .wp-contribute { bottom: 10%; right: 4%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbital-ring.spin-slow,
+  .orbital-ring.spin-reverse,
+  .canvas-beacon-dot,
+  .nexus-status-ping,
+  .active-beam {
+    animation: none;
+  }
+}

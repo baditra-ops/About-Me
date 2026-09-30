@@ -8,8 +8,9 @@ import AboutSection from './sections/AboutMe/AboutSection';
 import ProjectsSection from './sections/Projects/ProjectsSection';
 import SkillsSection from './sections/Skills/SkillsSection';
 import EducationSection from './sections/Education/EducationSection';
-import { personalInfo } from './data/personalInfo';
-import { Terminal } from 'lucide-react';
+import WhatsNextSection from './sections/WhatsNext/WhatsNextSection';
+import ContactSection from './sections/Contact/ContactSection';
+import Footer from './components/Footer';
 import './App.css';
 
 export default function App() {
@@ -43,68 +44,15 @@ export default function App() {
         {/* Step 6: Education & Learning Journey — The Academic Path */}
         <EducationSection />
 
-        <section id="contact" className="section-marker">
-          <div className="container">
-            <div className="section-marker-inner">
-              <span className="marker-telemetry">
-                <Terminal size={14} />
-                <span>PHASE ARCHITECTURE // STAGE 09 READY</span>
-              </span>
-              <h3 className="marker-title">Terminal & Contact Protocol</h3>
-              <p className="marker-desc">
-                Reserved container for direct reach-out, email dispatch, and engineering collaboration channels.
-              </p>
-            </div>
-          </div>
-        </section>
+        {/* Step 7: What's Next — The Next Node & Forward Direction */}
+        <WhatsNextSection />
+
+        {/* Step 8: Terminal & Contact Protocol — The Final Destination */}
+        <ContactSection />
       </main>
 
-      {/* Minimal Engineering Footer */}
-      <footer className="site-footer">
-        <div className="container footer-content">
-          <div className="footer-left">
-            <span className="footer-brand">{personalInfo.name.toUpperCase()}</span>
-            <span className="footer-sub">
-              IIT BHU Varanasi • Chemical Engineering '27 • Tech Team Selection
-            </span>
-          </div>
-
-          <div className="footer-right">
-            <a
-              href={personalInfo.socials.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="footer-link"
-            >
-              GitHub ↗
-            </a>
-            <a
-              href={personalInfo.socials.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="footer-link"
-            >
-              LinkedIn ↗
-            </a>
-            <a
-              href={personalInfo.socials.leetcode}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="footer-link"
-            >
-              LeetCode ↗
-            </a>
-            <a
-              href={personalInfo.socials.codeforces}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="footer-link"
-            >
-              Codeforces ↗
-            </a>
-          </div>
-        </div>
-      </footer>
+      {/* Polished Minimal Engineering Footer */}
+      <Footer />
     </div>
   );
 }

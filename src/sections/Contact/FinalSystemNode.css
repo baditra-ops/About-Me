@@ -1,0 +1,138 @@
+.final-system-node-banner {
+  position: relative;
+  margin-top: var(--space-12);
+  padding: var(--space-8) var(--space-6);
+  background: rgba(11, 15, 25, 0.6);
+  border: 1px dashed rgba(56, 189, 248, 0.25);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-5);
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+}
+
+.final-converge-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(56, 189, 248, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.02) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+/* Center Flow */
+.final-node-center-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  gap: var(--space-4);
+  z-index: 2;
+}
+
+.converge-line {
+  flex: 1;
+  height: 1px;
+}
+
+.left-line {
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.5));
+}
+
+.right-line {
+  background: linear-gradient(90deg, rgba(56, 189, 248, 0.5), transparent);
+}
+
+.final-anchor-core {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--bg-surface-elevated);
+  border: 1.5px solid var(--accent-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 0 16px var(--accent-cyan-glow);
+  flex-shrink: 0;
+}
+
+.anchor-core-icon {
+  color: #ffffff;
+}
+
+.anchor-beacon-ping {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-emerald);
+  box-shadow: 0 0 6px var(--accent-emerald);
+  animation: pulseEmerald 1.8s infinite;
+}
+
+/* Metadata */
+.final-node-meta-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  z-index: 2;
+}
+
+.meta-tag-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--text-dim);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.final-code {
+  color: var(--accent-cyan);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.final-sep {
+  color: rgba(255, 255, 255, 0.1);
+}
+
+.final-loc {
+  color: var(--text-secondary);
+}
+
+.final-coords {
+  color: var(--text-dim);
+}
+
+.final-transmission-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.final-transmission-sub {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anchor-beacon-ping {
+    animation: none;
+  }
+}

@@ -104,6 +104,7 @@ export const personalInfo = {
     { label: "PROJECTS", href: "#projects" },
     { label: "SKILLS", href: "#skills" },
     { label: "EDUCATION", href: "#education" },
+    { label: "WHAT'S NEXT", href: "#whats-next" },
     { label: "CONTACT", href: "#contact" }
   ]
 };

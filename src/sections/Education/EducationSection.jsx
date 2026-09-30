@@ -32,7 +32,7 @@ export default function EducationSection() {
           </div>
         </div>
 
-        {/* Exit Transition Conduit Toward What's Next / Contact */}
+        {/* Exit Transition Conduit Toward What's Next */}
         <div className="education-exit-conduit">
           <div className="education-exit-meta">
             <Terminal size={13} style={{ color: 'var(--accent-cyan)' }} />
@@ -40,16 +40,16 @@ export default function EducationSection() {
           </div>
 
           <a
-            href="#contact"
+            href="#whats-next"
             className="education-exit-action"
             data-magnetic="true"
             onClick={(e) => {
               e.preventDefault();
-              const contactEl = document.getElementById('contact');
-              if (contactEl) contactEl.scrollIntoView({ behavior: 'smooth' });
+              const nextEl = document.getElementById('whats-next');
+              if (nextEl) nextEl.scrollIntoView({ behavior: 'smooth' });
             }}
           >
-            <span>PROCEED TO TERMINAL & WHAT'S NEXT</span>
+            <span>PROCEED TO THE NEXT NODE & WHAT'S NEXT</span>
             <ArrowRight size={13} />
           </a>
         </div>
