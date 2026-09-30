@@ -5,8 +5,9 @@ import Navbar from './components/Navbar';
 import HeroSection from './sections/HeroSection';
 import BuildingExperience from './sections/BuildingExperience/BuildingExperience';
 import AboutSection from './sections/AboutMe/AboutSection';
+import ProjectsSection from './sections/Projects/ProjectsSection';
 import { personalInfo } from './data/personalInfo';
-import { Terminal, Shield } from 'lucide-react';
+import { Terminal } from 'lucide-react';
 import './App.css';
 
 export default function App() {
@@ -31,20 +32,8 @@ export default function App() {
         {/* Step 3: About Me — Transition from Place (IIT BHU) to Person (Baditra) */}
         <AboutSection />
 
-        <section id="projects" className="section-marker">
-          <div className="container">
-            <div className="section-marker-inner">
-              <span className="marker-telemetry">
-                <Shield size={14} />
-                <span>PHASE ARCHITECTURE // STAGE 06 READY</span>
-              </span>
-              <h3 className="marker-title">Engineering Projects</h3>
-              <p className="marker-desc">
-                Reserved container for VideoTube, Real-Time Ticketing System, and Smart Real-Time Monitoring System.
-              </p>
-            </div>
-          </div>
-        </section>
+        {/* Step 4: Things I've Built — Selected Systems & Engineering Projects */}
+        <ProjectsSection />
 
         <section id="skills" className="section-marker">
           <div className="container">
