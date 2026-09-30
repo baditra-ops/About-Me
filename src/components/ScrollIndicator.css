@@ -1,0 +1,77 @@
+.scroll-indicator-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: var(--space-2) var(--space-4);
+  margin-top: var(--space-8);
+  transition: opacity var(--transition-fast);
+}
+
+.scroll-indicator-wrap:hover {
+  opacity: 1;
+}
+
+.scroll-cue-text {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.scroll-indicator-wrap:hover .scroll-cue-text {
+  color: var(--accent-cyan);
+  transform: translateY(2px);
+}
+
+.scroll-track-container {
+  position: relative;
+  width: 2px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.scroll-traveler {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 16px;
+  background: linear-gradient(to bottom, transparent, var(--accent-cyan));
+  border-radius: 999px;
+  animation: scrollTrackDrop 2.2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  box-shadow: 0 0 8px var(--accent-cyan);
+}
+
+@keyframes scrollTrackDrop {
+  0% {
+    transform: translateY(-16px);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(44px);
+    opacity: 0;
+  }
+}
+
+.scroll-sub-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+}

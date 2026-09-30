@@ -1,0 +1,99 @@
+:root {
+  /* Color Palette - Deep Cinematic Dark */
+  --bg-primary: #07090e;
+  --bg-secondary: #0b0f19;
+  --bg-surface: #111726;
+  --bg-surface-hover: #162035;
+  --bg-surface-elevated: #1a243a;
+  --bg-glass: rgba(11, 15, 25, 0.75);
+  --bg-glass-subtle: rgba(255, 255, 255, 0.02);
+
+  /* Primary Accent - Precision Technical Cyan */
+  --accent-cyan: #38bdf8;
+  --accent-cyan-glow: rgba(56, 189, 248, 0.25);
+  --accent-cyan-subtle: rgba(56, 189, 248, 0.08);
+
+  /* Secondary Accent - Active Telemetry Green */
+  --accent-emerald: #10b981;
+  --accent-emerald-glow: rgba(16, 185, 129, 0.25);
+
+  /* IIT BHU Warm Architectural Accent - Terracotta / Crimson Heritage */
+  --accent-heritage: #e11d48;
+  --accent-heritage-amber: #f59e0b;
+  --accent-heritage-glow: rgba(225, 29, 72, 0.2);
+
+  /* Text & Foreground Hierarchy */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-dim: #475569;
+  --text-accent: #38bdf8;
+
+  /* Architectural Grid & Border System */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.14);
+  --border-highlight: rgba(56, 189, 248, 0.4);
+  --grid-line: rgba(56, 189, 248, 0.04);
+  --grid-line-strong: rgba(56, 189, 248, 0.08);
+
+  /* Typography System */
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Font Sizes */
+  --text-xs: 0.75rem;     /* 12px */
+  --text-sm: 0.875rem;    /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-lg: 1.125rem;    /* 18px */
+  --text-xl: 1.25rem;     /* 20px */
+  --text-2xl: 1.5rem;     /* 24px */
+  --text-3xl: 2rem;       /* 32px */
+  --text-4xl: 2.5rem;     /* 40px */
+  --text-5xl: 3.25rem;    /* 52px */
+  --text-6xl: 4.5rem;     /* 72px */
+  --text-hero: clamp(2.5rem, 6.5vw, 5.25rem);
+
+  /* Spacing Scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* Layout Containers */
+  --container-max: 1200px;
+  --container-wide: 1400px;
+
+  /* Animation Timings & Easings */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-fast: 150ms var(--ease-smooth);
+  --transition-normal: 250ms var(--ease-smooth);
+  --transition-slow: 500ms var(--ease-out-expo);
+
+  /* Layering / Z-Index */
+  --z-bg: 0;
+  --z-grid: 1;
+  --z-content: 10;
+  --z-overlay: 20;
+  --z-nav: 50;
+  --z-modal: 100;
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
